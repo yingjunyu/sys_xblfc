@@ -1,0 +1,37 @@
+<ion-view view-title="人员信息" hide-back-button="true">
+  <!--<ion-nav-buttons side="primary">
+    <button class="button" ng-click="openHelp($event)">About</button>
+  </ion-nav-buttons>-->
+  <ion-content>
+    <!--<h2>163</h2>
+    <ion-refresher on-refresh="load()" pulling-text="Pull to Refresh"></ion-refresher>-->
+    <ion-list>
+      <!--<ion-item ng-repeat="currency in currencies | filter:{selected:true}" ui-sref="tabs.detail({currency: currency.code})">
+        {{currency.code}} - {{currency.text}}
+        <span class="price" ng-if="currency.ticker.last == currency.ticker['24h_avg']">
+          {{currency.ticker.last || '0.00'}}<br />0.00
+        </span>
+        <span class="price negative" ng-if="currency.ticker.last < currency.ticker['24h_avg']">
+          {{currency.ticker.last}}<br /><span class="icon ion-arrow-down-b"></span> {{currency.ticker['24h_avg'] - currency.ticker.last | number:2}}
+        </span>
+        <span class="price positive" ng-if="currency.ticker.last > currency.ticker['24h_avg']">
+          {{currency.ticker.last}}<br /><span class="icon ion-arrow-up-b"></span> {{currency.ticker.last - currency.ticker['24h_avg'] | number:2}}
+        </span>
+      </ion-item>-->
+      <ion-refresher on-refresh="load()" pulling-text="Pull to Refresh"></ion-refresher>
+      <!--<ion-item ng-repeat="lnews in news">
+        <span ng-if="lnews.url != null">
+          <a href={{lnews.url_3w}}>{{lnews.title}}-{{lnews.ptime}}</a>
+        </span>
+      </ion-item>-->
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
+        <img src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.text}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer-bar class="bar-dark">
+    <h1 class="title">人员信息列表</h1>
+  </ion-footer-bar>
+</ion-view>
