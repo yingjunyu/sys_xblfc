@@ -24,10 +24,9 @@
           <a href={{lnews.url_3w}}>{{lnews.title}}-{{lnews.ptime}}</a>
         </span>
       </ion-item>-->
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap">
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tabs/person/{{chat.id}}">
         <img src="{{chat.face}}">
         <h2>{{chat.name}}</h2>
-        <p>{{chat.text}}</p>
       </ion-item>
     </ion-list>
   </ion-content>

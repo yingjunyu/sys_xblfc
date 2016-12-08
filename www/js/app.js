@@ -22,7 +22,7 @@ angular.module('App', ['ionic'])
       }
     })
     .state('tabs.performancem', {
-      url: '/performancem',
+      url: '/person/:chatId',
       views: {
         'performancem-tab': {
           templateUrl: 'view/performancem/performancem.html',
@@ -62,8 +62,69 @@ angular.module('App', ['ionic'])
 })
 
 .factory('Chats', function() {
-  return [
+   var chats = [{
+    id: 0,
+    name: '梅姐',
+    text: '乳房很大',
+    face: 'img/M.jpg'
+  }, {
+    id: 1,
+    name: '杨姐',
+    text: '阴毛很多',
+    face: 'img/Y.jpg'
+  }];
+
+  var performs = [{
+    id: 0,
+    month: '2016年10月',
+    perf: '5,600元'
+  }, {
+    id: 0,
+    month: '2016年11月',
+    perf: '15,600元'
+  }, {
+    id: 0,
+    month: '2016年12月',
+    perf: '8,000元'
+  }];
+  /** return [
     { name: '梅姐', face: 'img/M.jpg', text:'乳房很大'},
     { name: '杨姐', face: 'img/Y.jpg', text:'阴毛很多' }
-  ];
+  ];*/
+  return {
+    //返回人员信息
+    all: function() {
+      return chats;
+    },
+    remove: function(chat) {
+      chats.splice(chats.indexOf(chat), 1);
+    },
+    get: function(chatId) {
+      for (var i = 0; i < chats.length; i++) {
+        if (chats[i].id === parseInt(chatId)) {
+          return chats[i];
+        }
+      }
+      return null;
+    },
+
+    //返回业绩信息
+    allpf: function(){
+      return performs;
+    },
+    getpf: function(chatId){
+      var ppf = [];
+      for(var j = 0; j < performs.length; j++){
+        if(performs[j].id === parseInt(chatId)) {
+          ppf.push(performs[j]);
+        }
+      }
+      return ppf;
+      /** if(ppf.length != 0){
+        return ppf;
+      }else{
+        return "未查询到任何业绩数据";
+      }*/
+    }
+  };
 });

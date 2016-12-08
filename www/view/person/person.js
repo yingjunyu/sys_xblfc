@@ -2,7 +2,7 @@ angular.module('App')
 .controller('PersonController', function ($scope, $http, $ionicLoading, Chats) {
   //var directions = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
 
-  $scope.chats = Chats;
+  $scope.chats = Chats.all();
 
   $ionicLoading.show();
   $scope.load = function () {
@@ -19,7 +19,9 @@ angular.module('App')
       $scope.$broadcast('scroll.refreshComplete');
     });*/
     //console.log($scope.chats);
+    
     $ionicLoading.hide();
+    $scope.$broadcast('scroll.refreshComplete');
   }
   $scope.load();
 });
